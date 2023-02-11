@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+body,
+button {
+  font-family: "Inter", sans-serif;
+}
+
+a{
+  color: white;
+}
+
+.topStrip {
+  background-color: rgba(9, 10, 27, 1);
+}
+
+.main-class{
+  margin-left: 0px;
+}
+
+:root {
+  --offcanvas-width: 270px;
+  --topNavbarHeight: 56px;
+}
+.sidebar-nav {
+  width: var(--offcanvas-width);
+}
+.sidebar-link {
+  align-items: center;
+}
+.sidebar-link .right-icon {
+  display: inline-flex;
+}
+.sidebar-link[aria-expanded="true"] .right-icon {
+  transform: rotate(180deg);
+}
+
+/* .col-md-12 {
+  margin-top: 2rem;
+} */
+
+.show{
+  background-color: #343a40;
+  border-radius: 15px;
+}
+
+.show li:hover{
+  background-color: inherit;
+}
+
+/* .dropdown-menu{
+} */
+
+.dropdown-item{
+  color:white;
+}
+
+.dropdown-item:hover{
+  color:#dc3545;
+}
+
+.portfolio{
+  margin: 145px 100px 50px; 
+  border: 0.5px solid gray; 
+  padding: 50px 100px; 
+  border-radius: 20px;
+}
+
+@media (min-width: 992px) {
+  body {
+    overflow: auto !important;
+  }
+  main {
+    margin-left: var(--offcanvas-width);
+  }
+  /* this is to remove the backdrop */
+  .offcanvas-backdrop::before {
+    display: none;
+  }
+  .sidebar-nav {
+    -webkit-transform: none;
+    transform: none;
+    visibility: visible !important;
+    height: calc(100% - var(--topNavbarHeight));
+    top: var(--topNavbarHeight);
+  }
+}

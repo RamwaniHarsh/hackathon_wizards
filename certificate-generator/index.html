@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certificate</title>
+
+    <style>
+      @font-face {
+        font-family: "Inter";
+        src: url("Inter-Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Inter";
+        src: url("Inter-Medium.ttf") format("truetype");
+        font-weight: 500;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Inter";
+        src: url("Inter-Bold.ttf") format("truetype");
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: "Space Mono";
+        src: url("SpaceMono-Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-style: normal;
+      }
+
+      body {
+        font-size: 0.875rem;
+        font-family: "Inter", sans-serif;
+        font-weight: 400;
+        color: #000000;
+        text-align: center;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      #pspdfkit-header {
+        font-size: 0.625rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-weight: 700;
+        color: #717885;
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .logo {
+        margin-top: 2.5rem;
+        height: 1.5rem;
+        width: auto;
+      }
+
+      h1 {
+        font-family: "Space Mono", monospace;
+        font-size: 2.25rem;
+        font-weight: 400;
+        margin-top: 0;
+      }
+
+      h4 {
+        font-family: "Space Mono", monospace;
+        font-size: 1rem;
+        font-weight: 400;
+      }
+
+      .page {
+        margin-left: 5rem;
+        margin-right: 5rem;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 6rem;
+      }
+
+      .border-bottom {
+        border: 1px solid #000000;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+      }
+
+      .signer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 2rem 0 2rem 0;
+      }
+
+      .signer-item {
+        flex-grow: 1;
+      }
+
+      input {
+        color: #4537de;
+        font-family: "Space Mono", monospace;
+        font-size: 1rem;
+        text-align: center;
+        margin-top: 4rem;
+        height: 4rem;
+        width: 100%;
+        box-sizing: border-box;
+        pointer-events: none;
+      }
+
+      input#name {
+        font-size: 1.5rem;
+        pointer-events: none;
+      }
+
+      #pspdfkit-footer {
+        font-size: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 500;
+        color: #717885;
+        margin-top: 2.5rem;
+        bottom: 2.5rem;
+        position: absolute;
+        width: 100%;
+      }
+
+      .footer-columns {
+        display: flex;
+        justify-content: space-between;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="pspdfkit-header">
+      <img class="logo" src="logo.svg" />
+      <p>Company</p>
+    </div>
+
+    <div class="border"></div>
+    <div class="page" style="page-break-after: always">
+      <div>
+        <h1>
+          Certificate<br />
+          of Excellence
+        </h1>
+      </div>
+      <div class="form">
+        <label for="name" class="label">
+          This certificate is proudly <br />
+          presented to:
+        </label>
+        <h1 id="name" class="border-bottom">Harsh Ramwani</h1>
+        <!-- <input type="text" id="name" class="border-bottom" value="Harsh Ramwani" readonly  /> -->
+      </div>
+      <div>
+        <p>for Academic Achievements.</p>
+      </div>
+
+      <div class="signer">
+        <div class="form signer-item">
+          <label for="date" class="label">Date:</label>
+          <!-- <input type="text"  value="01/01/2021" readonly  /> -->
+          <h1 id="date" class="border-bottom">01/01/2021</h1>
+        </div>
+
+        <img class="form signer-item" src="ribbon.svg" />
+
+        <div class="form signer-item">
+          <label for="signature" class="label">Signature:</label>
+          <!-- <input type="text" id="signature" class="border-bottom" value="Harsh" readonly  /> -->
+          <h1 id="signature" class="border-bottom">Harsh</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" style="page-break-after: always">
+      <div>
+        <h4>
+          Thank you for being a part of<br />
+          our company!
+        </h4>
+      </div>
+
+      <div class="form">
+        <label for="notes" class="label"> Notes: </label>
+        <input type="text" id="notes" class="border-bottom" value="" readonly  />
+      </div>
+    </div>
+
+    <div id="pspdfkit-footer">
+      <div class="footer-columns">
+        <span>Certificate</span>
+        <span>Page {{ pageNumber }} of {{ pageCount }}</span>
+      </div>
+    </div>
+  </body>
+</html>

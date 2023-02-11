@@ -1,0 +1,140 @@
+.error {
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    background-color: rgb(245, 58, 58);
+    color: white;
+    padding: 5px;
+    width: 100%;
+    border-radius: 7px;
+  }
+
+  .success {
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    background-color: green;
+    color: white;
+    padding: 5px;
+    width: 100%;
+    border-radius: 7px;
+  }
+
+  #message {
+    display: block;
+    background-color: #555;
+    color: #fff;
+    position: relative;
+    padding: 20px;
+    margin-top: 10px;
+  }
+
+  #message p {
+    padding: 10px 35px;
+    font-size: 10px;
+  }
+
+  .valid {
+    display: block;
+    color: green;
+  }
+
+  .valid:before {
+    display: block;
+    position: relative;
+    left: -75px;
+    content: "✔️";
+  }
+
+  .invalid {
+    color: red;
+  }
+
+  .invalid:before {
+    position: relative;
+    left: -35px;
+    content: "❌";
+  }
+
+  .popup {
+    color: #fff;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  /* The actual popup */
+  .popup .popuptext {
+    visibility: hidden;
+    height: 200px;
+    width: 300px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    top: 125%;
+    left: 50%;
+    margin-left: -80px;
+  }
+
+  /* Popup arrow */
+  .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    right: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+
+  /* Toggle this class - hide and show the popup */
+  .popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+
+  .popup .hide {
+    visibility: hidden;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+
+  .popup .hide {
+    visibility: hidden;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+  }
+
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }

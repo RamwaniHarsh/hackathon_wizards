@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        button {
+            background-color: #06D6A0;
+        }
+    </style>
+
+    <title>Speech to Text</title>
+</head>
+
+<body>
+    <br><br>
+    Name: <input type="text" name="name" id="name">
+
+    <button onclick="startRecognition('name','status')">Speech to text</button>
+    <h4 id="status">Press the button below, and start speaking</h4>
+
+    <br><br>
+    Email: <input type="text" name="email" id="email">
+
+    <button onclick="startRecognition('email','status1')">Speech to text</button>
+    <h4 id="status1">Press the button below, and start speaking</h4>
+    <!-- <h4>Your Email would be: <span id="emailAns"></span></h4> -->
+
+    <br><br>
+    Number: <input type="text" name="number" id="number">
+
+    <button onclick="startRecognition('number','status2')">Speech to text</button>
+    <h4 id="status2">Press the button below, and start speaking</h4>
+
+    <br><br>
+    <button onclick="submitInput()">Submit All Inputs</button><br><br>
+    <h3 id="ans"></h3>
+
+
+    <script>
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        let msg = new SpeechSynthesisUtterance();
+
+        startRecognition = (inputId, statusId) => {
+
+            let status = document.getElementById(statusId);
+            let output = document.getElementById(inputId);
+
+            if (SpeechRecognition !== undefined) {
+                let recognition = new SpeechRecognition();
+
+                recognition.onstart = () => {
+                    status.innerHTML = `Starting listening, speak in the microphone please 🦻`;
+                };
+
+                recognition.onspeechend = () => {
+                    status.innerHTML = `I stopped listening `;
+                    recognition.stop();
+                };
+
+                recognition.onresult = (result) => {
+                    output.value = `${result.results[0][0].transcript}`;
+
+                    if (inputId == "email") {
+                        emailAns = output.value.toLowerCase();
+                        emailAns = emailAns.split(" ").join("");
+
+                        if (emailAns.includes("underscore")) {
+                            emailAns = emailAns.replace("underscore", "_");
+                        }
+                        if (emailAns.includes("hyphen")) {
+                            emailAns = emailAns.replace("hyphen", "-");
+                        }
+                        if (emailAns.includes("plus")) {
+                            emailAns = emailAns.replace("plus", "+");
+                        }
+
+                        output.value = emailAns;
+                    }
+
+
+                    msg.text = "Your " + inputId + " is " + output.value;
+                    window.speechSynthesis.speak(msg);
+
+                };
+
+                recognition.start();
+            } else {
+                status.innerHTML = "sorry not supported";
+            }  
+        };
+
+
+        function submitInput(){
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let number = document.getElementById("number").value;
+
+            let ans = "Name: "+name+"\n\nEmail: "+email+"\n\nNumber: "+number+"\n\nSubmitted Successfully";
+
+            document.getElementById("ans").innerText=ans;
+        }
+    </script>
+</body>
+
+</html>

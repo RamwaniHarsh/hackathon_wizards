@@ -1,1 +1,1 @@
-# hackathon_wizards
+hackathon_wizards_synopsis
